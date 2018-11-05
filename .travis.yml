@@ -1,0 +1,4 @@
+language: python
+
+rmv:
+  -3.6.6
