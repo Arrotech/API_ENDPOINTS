@@ -1,12 +1,12 @@
 from flask_restful import Resource
 from flask import make_response, jsonify, request, Blueprint
-from models import ParcelModel
+from app.api.v1.models.models import ParcelModel
 
 parcel_v1 = Blueprint('v1',__name__)
-parcel = ParcelModel()
-"""par = ParcelModel().get_all_orders()"""
 
 class DataParcel(Resource):
+	def __init__(self):
+		pass 
 
 	@parcel_v1.route('',methods=['POST'])
 	def post():
@@ -21,7 +21,21 @@ class DataParcel(Resource):
 		weight = details['weight']
 
 
-		parcel.save(sender_name,recipient,destination,pickup,weight)
+		res = ParcelModel().save(sender_name,recipient,destination,pickup,weight)
+
 		return make_response(jsonify({
-			"Message": "Hurray! It worked!!!"
+			"Message": "Hurray! It worked!!!",
+			"Parcel Order": res
 			}),201)
+
+	@parcel_v1.route('',methods=['GET'])
+	def get():
+		parcels = ParcelModel().get_all_parcels()
+		return make_response(jsonify({
+			"Message": "Hurray! It worked!!!",
+			"Parcel Order": ParcelModel().get_all_parcels()
+			}),201)
+
+
+
+
