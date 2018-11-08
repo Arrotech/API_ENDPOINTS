@@ -1,15 +1,20 @@
 import unittest
-from ...app import parcel_app
+from ... import parcel_app
 import os
 import tempfile
+import json
+from ...api.v1.views import views
+from ...api.v1.models.models import ParcelModel
 
 class TestDataParcel(unittest.TestCase):
-	def setUp():
-		parcel_app().app.testing = True
-		self.app = parcel_app().app.test_client()
+	def setUp(self):
+		self.app = parcel_app()
+		self.client = self.app.test_client()
+		self.app_context = self.app.app_context()
+		self.app_context.push()
+		
 
-		self.details = {
-			"ParcelId": len(ParcelModel.parcels)+1,
+		self.data = {
 	        "sender_name" : "Harun",
 	        "recipient": "Peter",
 	        "destination": "Nakuru",
@@ -18,17 +23,20 @@ class TestDataParcel(unittest.TestCase):
 		}
 
 	def test_post(self):
-		response = self.app.post('/api/v1/parcels',data=json.dumbs(), content_type='json')
-		result = json.loads(response.data)
-		self.assertEqual(response.status_code,201)
+		response = self.client.post('/api/v1/parcels',data=json.dumps(self.data), content_type='application/json')
+		result = json.loads(response.data.decode())
+		self.assertEqual(result['Message'], "Hurray! It worked!!!", msg="Not allowed")
+		assert response.status_code == 201
 
 	def test_get(self):
-		response = self.app.get('/api/v1/parcels',data=json.loads(), content_type='json')
-		result = json.loads(response.data)
-		self.assertEqual(response.status_code,201)
+		response = self.client.get('/api/v1/parcels',data=json.dumps(self.data), content_type='application/json')
+		result = json.loads(response.data.decode())
+		self.assertEqual(result['Message'], "Hurray! It worked!!!", msg="Not allowed")
+		assert response.status_code == 201
+		
 
 if __name__ == "__main__":
-	app.run(debug=True)
+	unittest.main()
 
 
 
