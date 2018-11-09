@@ -1,7 +1,8 @@
 parcels = []
 
 
-class ParcelModel():
+class ParcelModel():         
+
 
 	def __init__(self):
 		self.db = parcels
@@ -21,5 +22,16 @@ class ParcelModel():
 	def get_all_parcels(self):
 		return self.db
 
+	def get_parcel_by_id(self, parcel_id):
+		if self.db:
+			for order in self.db:
+				if order.get('parcel_id') == parcel_id:
+					return order
+
 	
+
+			
+
+
+
 
