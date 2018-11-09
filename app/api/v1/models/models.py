@@ -28,6 +28,11 @@ class ParcelModel():
 				if order.get('parcel_id') == parcel_id:
 					return order
 
+	def cancel_order(self, parcel_id):
+		for parcel in self.db:
+			if parcel_id == parcel['parcel_id']:
+				parcel.update({"status" : "Cancelled"})
+
 	
 
 			

@@ -28,7 +28,7 @@ class TestDataParcel(unittest.TestCase):
             '/api/v1/parcels', data=json.dumps(self.data), content_type='application/json')
         result = json.loads(response.data.decode())
         self.assertEqual(result['Message'],
-           "Hurray! It worked!!!", msg="Assertion error not equal to.")
+         "Hurray! It worked!!!", msg="Assertion error not equal to.")
         assert response.status_code == 201
 
     def test_get(self):
@@ -36,7 +36,7 @@ class TestDataParcel(unittest.TestCase):
             '/api/v1/parcels', data=json.dumps(self.data), content_type='application/json')
         result = json.loads(response.data.decode())
         self.assertEqual(result['Message'],
-           "Hurray! It worked!!!", msg="Not allowed")
+         "Hurray! It worked!!!", msg="Not allowed")
         assert response.status_code == 200
 
     def test_get_parcel_by_id(self):
@@ -44,10 +44,16 @@ class TestDataParcel(unittest.TestCase):
             '/api/v1/parcels/1', data=json.dumps(self.data), content_type='application/json')
         result = json.loads(response.data.decode())
         self.assertEqual(result['Message'],
-           "Hurray! It worked!!!", msg="Not allowed")
+         "Hurray! It worked!!!", msg="Not allowed")
         assert response.status_code == 200
 
-    
+    def test_cancel_order(self):
+      response = self.client.put('/api/v1/parcels/1/cancel',data=json.dumps(self.data), content_type='application/json')
+      result = json.loads(response.data.decode())
+      self.assertEqual(result['Status'], "Order cancelled", msg="Not allowed")
+      assert response.status_code == 201
+
+
 
 
 if __name__ == "__main__":
