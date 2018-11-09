@@ -38,7 +38,7 @@ class TestDataParcel(unittest.TestCase):
         self.assertEqual(result['Message'],
          "Hurray! It worked!!!", msg="Not allowed")
         assert response.status_code == 200
-
+        
     def test_get_parcel_by_id(self):
         response = self.client.get(
             '/api/v1/parcels/1', data=json.dumps(self.data), content_type='application/json')
