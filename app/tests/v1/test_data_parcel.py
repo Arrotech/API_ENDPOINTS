@@ -23,7 +23,9 @@ class TestDataParcel(unittest.TestCase):
         "recipient": "Peter",
         "destination": "Nakuru",
         "pickup": "Nairobi",
-        "weight": "25kg"
+        "weight": "25kg",
+        "user_name": "arrotech",
+        "Status" : "active"
         }
 
     def test_post(self):
@@ -54,6 +56,12 @@ class TestDataParcel(unittest.TestCase):
       response = self.client.put('/api/v1/parcels/1/cancel',data=json.dumps(self.data), content_type='application/json')
       result = json.loads(response.data.decode())
       self.assertEqual(result['Status'], "Order cancelled", msg="Not allowed")
+      assert response.status_code == 201
+
+    def test_user_order(self):
+      response = self.client.get('/api/v1/parcels/arrotech',data=json.dumps(self.data), content_type='application/json')
+      result = json.loads(response.data.decode())
+      self.assertEqual(result['Status'], "active", msg="Not allowed")
       assert response.status_code == 201
 
 

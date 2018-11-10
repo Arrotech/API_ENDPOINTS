@@ -10,7 +10,7 @@ class DataParcel(Resource):
 		pass 
 
 	@parcel_v1.route('',methods=['POST'])
-	def post():
+	def create_order():
 		if not request.json or not 'sender_name' in request.json:
 			abort(400)
 		if not request.json or not 'recipient' in request.json:
@@ -23,16 +23,14 @@ class DataParcel(Resource):
 			abort(400)
 		details = request.get_json()
 
-		sender_name = details['sender_name']
-		recipient = details['recipient']
-		destination = details['destination']
-		pickup = details['pickup']
+		sender_name = details['sender_name'],
+		recipient = details['recipient'],
+		destination = details['destination'],
+		pickup = details['pickup'],
 		weight = details['weight']
-		user_name = details['user_name']
-	
 
 
-		res = ParcelModel().save(sender_name,recipient,destination,pickup,weight,user_name)
+		res = ParcelModel().save(sender_name,recipient,destination,pickup,weight)
 
 		return make_response(jsonify({
 			"Message": "Hurray! It worked!!!",
@@ -45,7 +43,7 @@ class DataParcel(Resource):
 		return make_response(jsonify({
 			"Message": "Hurray! It worked!!!",
 			"Parcel Order": ParcelModel().get_all_parcels()
-			}),200)
+			}),201)
 
 
 	@parcel_v1.route('/<int:parcel_id>',methods=['GET'])
@@ -55,27 +53,14 @@ class DataParcel(Resource):
 		return make_response(jsonify({
 			"Message": "Hurray! It worked!!!",
 			"Parcel Order": Order
-			}),200)
-		
-	@parcel_v1.route('/<int:parcel_id>/cancel', methods=['PUT'])
-	def put(parcel_id):
-		parcel_1 = ParcelModel()
-		parcel_1.cancel_order(parcel_id)
+			}),201)
 
-		return jsonify({'Status': 'Order cancelled'}), 201
-
-	@parcel_v1.route('/user_name', methods=['GET'])
-	def get_user(user_name):
-		user_1 = ParcelModel()
-		user_1.user_order(user_name)
-
-		return jsonify({
-			"Status" : "active",
-			"User" : user_1
-		})
-
-
-	
+	'''@parcel_v1.route('<int:parcel_id>', methods=['DELETE'])
+	def cancel_order(self, parcel_id):
+		order = ParcelModel().get_parcel_by_id(self, parcel_id)
+		if order:
+			ParcelModel().cancel_order_by_id(self, parcel_id)
+			return jsonify({'Message': 'Order cancelled'}), 200'''
 
 
 
