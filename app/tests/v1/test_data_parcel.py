@@ -7,7 +7,6 @@ from ...api.v1.views import user_views
 from ...api.v1.models.models import ParcelModel
 
 
-import coverage
 import coveralls
 
 class TestDataParcel(unittest.TestCase):
