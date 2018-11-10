@@ -1,9 +1,10 @@
-from flask_restful import Resource
+from flask_restful import Resource, Api
 from flask import make_response, jsonify, request, Blueprint, abort
 from app.api.v1.models.models import ParcelModel
 
 
 parcel_v1 = Blueprint('v1',__name__)
+
 
 class DataParcel(Resource):
 	def __init__(self):
@@ -28,11 +29,11 @@ class DataParcel(Resource):
 		destination = details['destination']
 		pickup = details['pickup']
 		weight = details['weight']
-		user_name = details['user_name']
+		user_id = details['user_id']
 	
 
 
-		res = ParcelModel().save(sender_name,recipient,destination,pickup,weight,user_name)
+		res = ParcelModel().save(sender_name,recipient,destination,pickup,weight,user_id)
 
 		return make_response(jsonify({
 			"Message": "Hurray! It worked!!!",
@@ -64,14 +65,14 @@ class DataParcel(Resource):
 
 		return jsonify({'Status': 'Order cancelled'}), 201
 
-	@parcel_v1.route('/user_name', methods=['GET'])
-	def get_user(user_name):
+	@parcel_v1.route('/<int:user_id>', methods=['GET'])
+	def get_user(user_id):
 		user_1 = ParcelModel()
-		user_1.user_order(user_name)
+		
 
 		return jsonify({
 			"Status" : "active",
-			"User" : user_1
+			"User" : user_1.user_order(user_id)
 		})
 
 
