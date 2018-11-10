@@ -4,14 +4,10 @@
 
   install:
   - pip install -r requirements.txt
+  - pip install coveralls codecov
   
   script:
-    - pytest --cov app
-
-  branches:
-    only:
-  - ch-configure-procfile-161858951
-  - develop
+    - pytest --with-coverage
 
   after_success:
   - "codecov"
