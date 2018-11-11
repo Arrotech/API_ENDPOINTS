@@ -28,14 +28,6 @@ class TestDataParcel(unittest.TestCase):
         "Status" : "active"
         }
 
-    def test_post(self):
-        response = self.client.post(
-            '/api/v1/parcels', data=json.dumps(self.data), content_type='application/json')
-        result = json.loads(response.data.decode())
-        self.assertEqual(result['Message'],
-         "Hurray! It worked!!!", msg="Not allowed")
-        assert response.status_code == 200
-
     def test_get(self):
         response = self.client.get(
             '/api/v1/parcels', data=json.dumps(self.data), content_type='application/json')
