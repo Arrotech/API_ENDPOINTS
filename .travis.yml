@@ -7,7 +7,7 @@
  
   
   script:
-    - pytest --with-coverage
+    - pytest
 
   after_success:
   - "codecov"
