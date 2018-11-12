@@ -18,15 +18,20 @@ class TestDataParcel(unittest.TestCase):
         self.app_context.push()
 
         self.data = {
-        "parcel_id": "1",
-        "sender_name": "Harun",
-        "recipient": "Peter",
-        "destination": "Nakuru",
-        "pickup": "Nairobi",
-        "weight": "25kg",
-        "user_name": "arrotech",
-        "Status" : "active"
+            "sender_name": "Harun",
+            "recipient": "Peter",
+            "destination": "Nakuru",
+            "pickup": "Nairobi",
+            "weight": "25kg",
+            "name": "arrotech"
         }
+    def test_post(self):
+        response = self.client.post(
+            '/api/v1/parcels', data=json.dumps(self.data), content_type='application/json')
+        result = json.loads(response.data.decode())
+        self.assertEqual(result['Message'],
+         "Hurray! It worked!!!", msg="Not allowed")
+        assert response.status_code == 201
 
     def test_get(self):
         response = self.client.get(
