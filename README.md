@@ -76,6 +76,10 @@ The endpoits can be tested on Heroku hosting services using the following link.
 
 Integrate GitHub with Travis CI to provide a continuous integration and an automated testing. Integrate GitHub with coveralls to provide test coverage of all tests.
 
+
+[![Build Status](https://travis-ci.com/Arrotech/API_ENDPOINTS.svg?branch=develop)](https://travis-ci.com/Arrotech/API_ENDPOINTS)
+
+
 **Author**
 
      Harun Gachanja Gitundu
