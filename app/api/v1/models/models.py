@@ -1,20 +1,19 @@
 parcels = []
 
-
 class ParcelModel():         
-
 
 	def __init__(self):
 		self.db = parcels
 
-	def save(self, sender_name, recipient, destination, pickup, weight):
+	def save(self, sender_name, recipient, destination, pickup, weight, name):
 		payload = {
 		"parcel_id" : len(self.db)+1,
 		"senderName" : sender_name,
 		"recipient" : recipient,
 		"destination" : destination,
 		"pickup" : pickup,
-		"weight" : weight
+		"weight" : weight,
+		"name" : name
 		}
 		self.db.append(payload)
 		return self.db
@@ -33,6 +32,11 @@ class ParcelModel():
 			if parcel_id == parcel['parcel_id']:
 				parcel.update({"status" : "Cancelled"})
 
+	def user_order(self, name):
+		if self.db:
+			for user in self.db:
+				if user.get('name') == name:
+					return user, 200
 	
 
 			
