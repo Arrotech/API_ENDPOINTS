@@ -2,6 +2,8 @@
 
 To create a set of API Endpoints that use data structures to store data in memory in place of databases.
 
+
+
 **GETTING STARTED**
 
 
@@ -16,15 +18,9 @@ The following are the API endpoints functions.
 |POST/parcels                 |Create a parcel delivery order                     |
 
 
-
-
-
-
-
 Users can create a new parel delivery orders using the POST. Test with postman by passing the URL.
 
     [POST]: http://localhost:5000/api/v1/parcels with the method POST.
-
 
 
 Users can fetch all the deliery orders they make. Test with postman by passing the URL 
@@ -32,13 +28,9 @@ Users can fetch all the deliery orders they make. Test with postman by passing t
     [GET/parcels]: http://localhost:5000/api/v1/parcels
 
 
-
-
 Users can get a speific order with provision of the order id. Test with postman by passing the URL 
 
     [GET/parcels/<parcelid>]: http://localhost:5000/api/v1/parcels/parcel_id
-
-
 
 
 Users can cancel pending orders by order id. Test with postman by passing the URL 
@@ -46,10 +38,10 @@ Users can cancel pending orders by order id. Test with postman by passing the UR
     [PUT /parcels/<parcelId>/cancel]: http://localhost:5000/api/v1/parcels/parcel_id/cancel
 
 
-
 One can all orders of a specific user. Test with postman by passing the URL
 
     [GET /users/<userId>/parcels]: nhttp://localhost:5000/api/v1/parcels/user_id/all_parcels
+
 
 
 **Requirement Softwares**
