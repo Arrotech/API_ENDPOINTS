@@ -9,7 +9,7 @@ def parcel_app():
 
 	#Register the blueprint you want to use/run
 	app.register_blueprint(v1, url_prefix='/api/v1/parcels')
-	app.register_blueprint(v1, url_prefix='/api/v1/parcels/')
+	#app.register_blueprint(v1, url_prefix='/api/v1/parcels/')
 
 
 	return app

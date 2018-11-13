@@ -1,8 +1,7 @@
+
 parcels = []
 
-
 class ParcelModel():         
-
 
 	def __init__(self):
 		self.db = parcels
@@ -35,34 +34,10 @@ class ParcelModel():
 				parcel.update({"status" : "Cancelled"})
 
 	def user_order(self, name):
-		users = [
-			{
-				"name" : "Harun",
-				"parcel_id" : 2,
-				"destination" : "nakuru",
-				"pickup" : "nairobi"
-
-			},
-			{
-				"name" : "George",
-				"parcel_id" : 4,
-				"destination" : "lagos",
-				"pickup" : "kinshasa"
-
-			},
-			{
-				"name" : "maureen",
-				"parcel_id" : 1,
-				"destination" : "eldoret",
-				"pickup" : "dubai"
-
-			}
-
-		]
-		for user in users:
-			if name == user['name']:
-				#user_orders.append(user)
-				return user, 200
+		if self.db:
+			for user in self.db:
+				if user.get('name') == name:
+					return user, 200
 	
 
 			
