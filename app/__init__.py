@@ -1,6 +1,8 @@
 from flask import Flask, Blueprint
-from api.v1 import version1 as v1
+from .api.v1.views.user_views import parcel_v1 as v1
 
-def create_app():
+def parcel_app():
 	app = Flask(__name__)
-	app.register_blueprint
+	app.register_blueprint(v1, url_prefix='/api/v1/parcels')
+	return app
+
