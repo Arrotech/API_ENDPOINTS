@@ -1,10 +1,9 @@
 import unittest
 from ... import parcel_app
-import os
-import tempfile
 import json
 from ...api.v1.views import user_views
 from ...api.v1.models.models import ParcelModel
+
 
 class TestDataParcel(unittest.TestCase):
 
@@ -15,12 +14,12 @@ class TestDataParcel(unittest.TestCase):
         self.app_context.push()
 
         self.data = {
-        "parcel_id": "1",
         "sender_name": "Harun",
         "recipient": "Peter",
         "destination": "Nakuru",
         "pickup": "Nairobi",
-        "weight": "25kg"
+        "weight": "25kg",
+        "name": "arrotech"
         }
 
     def test_post(self):
@@ -28,7 +27,7 @@ class TestDataParcel(unittest.TestCase):
             '/api/v1/parcels', data=json.dumps(self.data), content_type='application/json')
         result = json.loads(response.data.decode())
         self.assertEqual(result['Message'],
-         "Hurray! It worked!!!", msg="Assertion error not equal to.")
+           "Hurray! It worked!!!", msg="Not allowed")
         assert response.status_code == 201
 
     def test_get(self):
@@ -36,7 +35,7 @@ class TestDataParcel(unittest.TestCase):
             '/api/v1/parcels', data=json.dumps(self.data), content_type='application/json')
         result = json.loads(response.data.decode())
         self.assertEqual(result['Message'],
-         "Hurray! It worked!!!", msg="Not allowed")
+           "Hurray! It worked!!!", msg="Not allowed")
         assert response.status_code == 200
 
     def test_get_parcel_by_id(self):
@@ -44,14 +43,15 @@ class TestDataParcel(unittest.TestCase):
             '/api/v1/parcels/1', data=json.dumps(self.data), content_type='application/json')
         result = json.loads(response.data.decode())
         self.assertEqual(result['Message'],
-         "Hurray! It worked!!!", msg="Not allowed")
+           "Hurray! It worked!!!", msg="Not allowed")
         assert response.status_code == 200
 
     def test_cancel_order(self):
-      response = self.client.put('/api/v1/parcels/1/cancel',data=json.dumps(self.data), content_type='application/json')
-      result = json.loads(response.data.decode())
-      self.assertEqual(result['Status'], "Order cancelled", msg="Not allowed")
-      assert response.status_code == 201
+        response = self.client.put('/api/v1/parcels/1/cancel',data=json.dumps(self.data), content_type='application/json')
+        result = json.loads(response.data.decode())
+        self.assertEqual(result['Status'], "Order cancelled", msg="Not allowed")
+        assert response.status_code == 201
+
 
 
 
