@@ -1,9 +1,9 @@
-from flask_restful import Resource, Api
+from flask_restful import Resource
 from flask import make_response, jsonify, request, Blueprint, abort
 from app.api.v1.models.models import ParcelModel
 
 
-parcel_v1 = Blueprint('v1',__name__)
+parcel_v1 = Blueprint('v1',__name__, url_prefix='/api/v1/parcels')
 
 
 class DataParcel(Resource):
@@ -67,7 +67,7 @@ class DataParcel(Resource):
 
 		return jsonify({'Status': 'Order cancelled'}), 201
 
-	@parcel_v1.route('/user/<string:name>', methods=['GET'])
+	@parcel_v1.route('/user/<string:name>/parcels', methods=['GET'])
 	def get_user(name):
 		user_1 = ParcelModel().user_order(name)
 		
