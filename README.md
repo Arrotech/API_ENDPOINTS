@@ -52,7 +52,7 @@ One can all orders of a specific user. Test with postman by passing the URL
     [GET /users/<userId>/parcels]: nhttp://localhost:5000/api/v1/parcels/user_id/all_parcels
 
 
-#Requirement Softwares
+**Requirement Softwares**
 
 
     Install pytest.
@@ -88,7 +88,7 @@ Integrate GitHub with Travis CI to provide a continuous integration and an autom
 
      Harun Gachanja Gitundu
 
-#Contributors to the project.
+**Contributors to the project**
 
      Abraham Ogol.
 
