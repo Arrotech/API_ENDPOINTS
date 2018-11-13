@@ -1,7 +1,6 @@
-flask_env1/
+api_env1/
 *.pyc
-requirements.text
 __pycache__/
 .idea/
 .vscode/
-Environments/
+
