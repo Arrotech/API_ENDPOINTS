@@ -11,13 +11,13 @@ To create a set of API Endpoints that use data structures to store data in memor
 
 The following are the API endpoints functions.
 
-| ENDPOINT                    | FUNCTIONALITY
-|----------------------------:|--------------------------------------------------:|
-|GET/parcels                  |Fetch all parcel delivery orders                   |      
-|GET/parcels/<parcelid>       |Fetch a specific parcel delivery order             |
-|GET/user/<userid>/parcels    |Fetch all parcel delivery orders by a specific user|
-|PUT/parcels/<parcelid>/cancel|Cancel the specific parcel delivery order          |
-|POST/parcels                 |Create a parcel delivery order                     |
+| ENDPOINT                       | FUNCTIONALITY
+|-------------------------------:|--------------------------------------------------:|
+|GET/parcels                     |Fetch all parcel delivery orders                   |      
+|GET/parcels/<parcelid>          |Fetch a specific parcel delivery order             |
+|GET/user/<userid>/parcels       |Fetch all parcel delivery orders by a specific user|
+|PUT/parcels/<parcelid>/cancel   |Cancel the specific parcel delivery order          |
+|POST/parcels                    |Create a parcel delivery order                     |
 
 
 Users can create a new parel delivery orders using the POST. Test with postman by passing the URL.
