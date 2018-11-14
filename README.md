@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Arrotech/API_ENDPOINTS.svg?branch=develop)](https://travis-ci.com/Arrotech/API_ENDPOINTS)
+
 **API_ENDPOINTS**
 
 To create a set of API Endpoints that use data structures to store data in memory in place of databases.
@@ -76,8 +78,6 @@ The endpoits can be tested on Heroku hosting services using the following link.
 
 Integrate GitHub with Travis CI to provide a continuous integration and an automated testing. Integrate GitHub with coveralls to provide test coverage of all tests.
 
-
-[![Build Status](https://travis-ci.com/Arrotech/API_ENDPOINTS.svg?branch=develop)](https://travis-ci.com/Arrotech/API_ENDPOINTS)
 
 
 **Author**
