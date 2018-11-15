@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/Arrotech/API_ENDPOINTS.svg?branch=develop)](https://travis-ci.com/Arrotech/API_ENDPOINTS)
+[![Build Status](https://travis-ci.com/Arrotech/API_ENDPOINTS.svg?branch=develop)](https://travis-ci.com/Arrotech/API_ENDPOINTS) [![Coverage Status](https://coveralls.io/repos/github/Arrotech/API_ENDPOINTS/badge.svg?branch=ch-change-procfile-location-161865698)](https://coveralls.io/github/Arrotech/API_ENDPOINTS?branch=ch-change-procfile-location-161865698)
 
 **API_ENDPOINTS**
 
