@@ -9,6 +9,9 @@
     - pip install nose
     - pip install coverage
     - pip install coveralls
+    
+  ignore:
+    - tests/
  
   script:
     - nosetests --with-coverage --cover-package=app
