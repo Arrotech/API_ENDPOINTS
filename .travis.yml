@@ -9,8 +9,10 @@
     - pip install nose
     - pip install coverage
     - pip install coveralls
+    
+  virtualenv:
+      system_site_packages: true
  
-  
   script:
     - nosetests --with-coverage --cover-package=app
 
