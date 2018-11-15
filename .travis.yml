@@ -11,7 +11,10 @@
     - pip install coveralls
     
   ignore:
-    - tests/
+    - tests/*
+    
+  skip_build:
+    - tests/*
  
   script:
     - nosetests --with-coverage --cover-package=app
