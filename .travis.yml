@@ -10,11 +10,6 @@
     - pip install coverage
     - pip install coveralls
     
-  ignore:
-    - tests/*
-    
-  skip_build:
-    - tests/*
  
   script:
     - nosetests --with-coverage --cover-package=app
