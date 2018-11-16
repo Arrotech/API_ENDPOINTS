@@ -13,7 +13,8 @@ class ParcelModel():
 		"destination" : destination,
 		"pickup" : pickup,
 		"weight" : weight,
-		"username" : username
+		"username" : username,
+		
 		}
 		self.orders.append(delivery_order)
 		return self.orders
@@ -31,6 +32,11 @@ class ParcelModel():
 		for parcel in self.orders:
 			if parcel_id == parcel['parcel_id']:
 				parcel.update({"status" : "Cancelled"})
+
+	def delete_order(self, parcel_id):
+		for order in self.orders:
+			if parcel_id == order['parcel_id']:
+				order.update({"status" : "Deleted"})
 
 	def user_orders_by_username(self, username):
 		users = [
