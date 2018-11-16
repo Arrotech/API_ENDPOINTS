@@ -59,17 +59,32 @@ One can all orders of a specific user. Test with postman by passing the URL
 
     Install virtualenv.
 
-
+    Install Postman
+    
+    Install nose
+    
+    
 
 
 **Delevoloping Environment**
 
 
-Create a development environment called api_env1 with virtualenv .
+Create a development environment called api_en1 with virtualenv .
 Pip install virtualenv. Make a folder called Environments to hold the enironments i.e api_env1 should be in the Environments folder.Then activate the Environment and work from there. In the environment install flask, flask-restful, coveralls, coverage and pytest. Pip freeze > requirements.txt - to create a text file that hold the installations of that environment incase there is need to export them to another enironment.
 
 
 **TESTS**
+After setting the environment clone the repository to a local machine. 
+
+After installing all the requirements run the server on the terminal by typing 
+
+    export FLASK_DEBUG=true
+    
+    export FLASK_APP=run.py
+    
+    flask run
+    
+Start Postman app. To test the endpoints use all the links provided above for each case.
 
 The endpoits can be tested on Heroku hosting services using the following link.
 
