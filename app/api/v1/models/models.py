@@ -14,6 +14,7 @@ class ParcelModel():
 		"pickup" : pickup,
 		"weight" : weight,
 		"username" : username,
+		"Status" : "In-Transit"
 		
 		}
 		self.orders.append(delivery_order)
