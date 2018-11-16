@@ -74,6 +74,8 @@ Pip install virtualenv. Make a folder called Environments to hold the enironment
 
 
 **TESTS**
+
+
 After setting the environment clone the repository to a local machine. 
 
 After installing all the requirements run the server on the terminal by typing 
