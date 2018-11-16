@@ -40,6 +40,7 @@ class DataParcel(Resource):
 		pickup = details['pickup']
 		weight = details['weight']
 		username = details['username']
+		
 
 		if details["sender_name"]=="":
 			abort(400)
